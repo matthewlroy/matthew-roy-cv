@@ -27,10 +27,12 @@
             --glass: rgba(255, 255, 255, 0.04);
             --radius: 12px;
             --max-width: 980px;
+            --header-offset: 96px; /* space for fixed header (top + header height) */
         }
 
         body {
             margin: 0;
+            padding-top: var(--header-offset);
             font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
             background: linear-gradient(180deg, #081229 0%, #071226 60%);
             color: #e6eef6;
@@ -587,6 +589,11 @@
             section {
                 padding: 3rem 1rem 1rem;
                 margin: 18px auto 0;
+            }
+
+            /* smaller header offset on mobile */
+            :root {
+                --header-offset: 72px;
             }
         }
     </style>
