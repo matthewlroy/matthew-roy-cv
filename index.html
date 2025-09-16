@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Roy – CV</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #1e88e5;
+            color: white;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.7rem 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin: 0 0.7rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: white;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links.mobile-hidden {
+            display: none;
+        }
+
+        section {
+            padding: 5rem 2rem 2rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #1e88e5;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.3rem;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem 1rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1e88e5;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        .sub {
+            font-weight: bold;
+            margin-top: 0.8rem;
+        }
+
+        .achievements-list {
+            margin-top: 0.5rem;
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade/Slide animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            display: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+            z-index: 999;
+        }
+
+        #backToTop:hover {
+            background: #1565c0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav a {
+                margin: 0.5rem 0;
+                display: block;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                background-color: #1e88e5;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                padding: 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Matthew Roy</h1>
+        <nav>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="nav-links mobile-hidden" id="nav-links">
+                <a href="#summary">Summary</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="summary" class="reveal">
+        <h2>Summary</h2>
+        <p><strong>Matthew Roy is</strong> a technology leader with 11+ years’ experience spanning startups and Fortune
+            500 companies. Proven ability to scale high-performing teams, modernize processes, and drive measurable
+            business outcomes with focus on cost optimization, Agile transformations, AI innovation, and executive
+            leadership.</p>
+        <div class="sub">Achievements include:</div>
+        <ul class="achievements-list">
+            <li>$1M+ annual cloud cost savings as Director of Technology at Thomson Reuters</li>
+            <li>Reduced OpEx spend by $2.5M+ year-over-year through operational efficiency</li>
+            <li>Improved release accuracy by 15% and throughput by 189% via Agile transformation</li>
+            <li>Launched GenAI-powered investigative applications and major product cloud migrations</li>
+            <li>Played pivotal role in driving a tenfold increase in deployed systems and expanding client base at
+                Pondera</li>
+        </ul>
+    </section>
+
+    <section id="skills" class="reveal">
+        <h2>Skills</h2>
+        <div class="skill-grid">
+            <div class="card">
+                <div class="sub">Software</div>
+                <ul>
+                    <li>.NET Core, C#, C++, Java, Spring Boot, Python, PHP, Rust</li>
+                    <li>HTML, CSS, Bootstrap, JavaScript</li>
+                    <li>Entity Framework, Hibernate, MSSQL, MySQL</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="sub">Infrastructure & DevOps</div>
+                <ul>
+                    <li>AWS, Azure, Docker, VMWare</li>
+                    <li>Linux, Windows Server, Jenkins</li>
+                    <li>Git, GitHub, Bitbucket</li>
+                    <li>JIRA, Rally, ServiceNow</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="sub">Essential</div>
+                <ul>
+                    <li>Agile Evangelist, Scrum Master</li>
+                    <li>Leadership & Mentorship</li>
+                    <li>Process Improvement, Cost Optimization</li>
+                    <li>Cross-functional Collaboration, Strategic Planning</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="reveal">
+        <h2>Key Projects</h2>
+        <div class="card">
+            <h3>Cost Optimization – Thomson Reuters</h3>
+            <p>Delivered $1M+ in annual cloud savings and $2.5M reduction in OpEx through strategic licensing,
+                automation, and staff optimization.</p>
+        </div>
+        <div class="card">
+            <h3>Agile Transformation</h3>
+            <p>Implemented consistent Agile ceremonies and release cadence, lifting release accuracy by 15% and
+                throughput by 189%.</p>
+        </div>
+        <div class="card">
+            <h3>Pondera Case Management</h3>
+            <p>Redesigned system to increase deployments 10x and client growth, leading to Thomson Reuters acquisition.
+            </p>
+        </div>
+    </section>
+
+    <section id="experience" class="reveal">
+        <h2>Experience</h2>
+        <div class="card"><strong>Director of Technology</strong>, Thomson Reuters | 2024–Present</div>
+        <div class="card"><strong>Software Engineer Manager</strong>, Thomson Reuters | 2021–2024</div>
+        <div class="card"><strong>Software Engineer</strong>, Pondera Solutions / Thomson Reuters | 2019–2021</div>
+        <div class="card"><strong>Software Engineer, Scrum Master</strong>, Intel | 2018–2019</div>
+        <div class="card"><strong>IT Systems Programmer</strong>, Intel | 2016–2018</div>
+        <div class="card"><strong>Application Developer</strong>, Intel | 2016</div>
+        <div class="card"><strong>Web Developer</strong>, CSU Sacramento | 2014–2016</div>
+    </section>
+
+    <section id="education" class="reveal">
+        <h2>Education</h2>
+        <div class="card">
+            <strong>BSc Computer Science</strong>, CSU Sacramento (2014–2018), GPA 3.75/4.0<br>
+            *Outstanding Scholastic Achievement Award – top of class*
+        </div>
+        <div class="card">
+            <strong>Minor in Mathematics</strong>, CSU Sacramento (2014–2018)
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:Matthew.L.Roy@gmail.com">Matthew.L.Roy@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/matthew-l-roy" target="_blank">linkedin.com/in/matthew-l-roy</a>
+        </p>
+        <p>GitHub: <a href="https://github.com/matthewlroy" target="_blank">github.com/matthewlroy</a></p>
+        <p>[Phone and mailing address available on request]</p>
+    </section>
+
+    <footer>© 2025 Matthew Roy • All Rights Reserved</footer>
+
+    <!-- Back To Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
+
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("mobile-hidden");
+        });
+
+        // Intersection Observer to reveal sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Back to Top logic
+        const backToTop = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+        });
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
