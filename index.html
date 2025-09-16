@@ -253,6 +253,19 @@
             margin: 0.35rem 0;
         }
 
+        /* Make contact links lighter and more visible */
+        #contact a {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        #contact a:hover,
+        #contact a:focus {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
         /* Experience section improvements */
         .experience-list {
             display: grid;
@@ -341,6 +354,91 @@
             margin-top: 0.25rem;
             font-size: 0.96rem;
             line-height: 1.5;
+        }
+
+        /* Key Projects styling - match experience cards */
+        .project-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.5rem 1rem;
+            align-items: start;
+            padding: 14px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .proj-left {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .proj-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .proj-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .proj-role {
+            font-weight: 700;
+            color: #e6eef6;
+            margin-bottom: 0.25rem;
+            font-size: 1.02rem;
+        }
+
+        .proj-subtitle {
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .proj-dates {
+            color: var(--muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .proj-summary {
+            color: var(--muted-2);
+            margin-top: 0.25rem;
+            font-size: 0.96rem;
+            line-height: 1.45;
+        }
+
+        @media (max-width: 768px) {
+            .project-item {
+                grid-template-columns: 1fr;
+            }
+
+            .proj-dates {
+                text-align: left;
+            }
         }
 
         @media (max-width: 768px) {
@@ -626,20 +724,270 @@
 
     <section id="projects" class="reveal">
         <h2>Key Projects</h2>
-        <div class="card">
-            <h3>Cost Optimization – Thomson Reuters</h3>
-            <p>Delivered $1M+ in annual cloud savings and $2.5M reduction in OpEx through strategic licensing,
-                automation, and staff optimization.</p>
-        </div>
-        <div class="card">
-            <h3>Agile Transformation</h3>
-            <p>Implemented consistent Agile ceremonies and release cadence, lifting release accuracy by 15% and
-                throughput by 189%.</p>
-        </div>
-        <div class="card">
-            <h3>Pondera Case Management</h3>
-            <p>Redesigned system to increase deployments 10x and client growth, leading to Thomson Reuters acquisition.
-            </p>
+        <div class="project-list">
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/thomson_reuters_logo.jpeg" alt="Thomson Reuters"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Leading Cost Optimization & Operational Efficiency</div>
+                        <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
+                        <div class="proj-summary">Directed strategic initiatives to optimize total technology group
+                            expenses, achieving over $1M in annual cloud cost savings and reducing overall operational
+                            expenditure by more than $2.5M year-over-year. Executed headcount rightsizing, contractor
+                            footprint reduction, and negotiated strategic licensing contracts while collaborating across
+                            finance, procurement, and engineering to automate workflows and enhance resource
+                            utilization.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">Cost Management</span>
+                            <span class="skill-chip">Headcount Optimization</span>
+                            <span class="skill-chip">Procurement Strategy</span>
+                            <span class="skill-chip">Cloud Cost Savings</span>
+                            <span class="skill-chip">Operational Efficiency</span>
+                            <span class="skill-chip">Financial Stewardship</span>
+                            <span class="skill-chip">Automation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">Ongoing</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/thomson_reuters_logo.jpeg" alt="Thomson Reuters"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Organizational Restructuring</div>
+                        <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
+                        <div class="proj-summary">Architected and executed a department-wide restructuring into four
+                            pillars (Data Management, Release Management, New Product & Technologies, Application
+                            Development Management), flattened hierarchy, identified pillar leads, and built 44 KPIs for
+                            2025 with shared KPIs to reinforce collaboration and accountability.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">Organizational Design</span>
+                            <span class="skill-chip">Leadership Development</span>
+                            <span class="skill-chip">Change Management</span>
+                            <span class="skill-chip">Agile Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">3 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/thomson_reuters_logo.jpeg" alt="Thomson Reuters"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Agile Transformation & Release Cadence</div>
+                        <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
+                        <div class="proj-summary">Rolled out consistent Agile ceremonies across pillars, unified sprint
+                            planning, and shifted to a bi-weekly release cadence while automating weekly ETL
+                            deployments. Delivered a sustained 15% increase in release accuracy and a 189% throughput
+                            improvement while reducing operational expense and DevOps/QA burnout.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">Agile Methodologies</span>
+                            <span class="skill-chip">Release Management</span>
+                            <span class="skill-chip">Process Optimization</span>
+                            <span class="skill-chip">DevOps Enablement</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">12 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/thomson_reuters_logo.jpeg" alt="Thomson Reuters"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">JIRA Transformation Committee</div>
+                        <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
+                        <div class="proj-summary">Led the overhaul of JIRA workflows with new issue statuses, gates, and
+                            ceremonies, authored a user guide, and delivered training to accelerate adoption. Introduced
+                            forums and unified planning to boost cross-functional collaboration by ~40%.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">JIRA Administration</span>
+                            <span class="skill-chip">Training Development</span>
+                            <span class="skill-chip">Process Improvement</span>
+                            <span class="skill-chip">Stakeholder Engagement</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">4 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/thomson_reuters_logo.jpeg" alt="Thomson Reuters"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Group-wide Dashboard Design</div>
+                        <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
+                        <div class="proj-summary">Designed and built a centralized dashboard merging status, metrics,
+                            and workflows across the four pillars to provide real-time visibility, align cross-team
+                            priorities, and enable data-informed portfolio decisions.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">Dashboard Design</span>
+                            <span class="skill-chip">Data Visualization</span>
+                            <span class="skill-chip">Cross-Functional Collaboration</span>
+                            <span class="skill-chip">Stakeholder Alignment</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">6 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/thomson_reuters_logo.jpeg" alt="Thomson Reuters"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Scale Case Management Product</div>
+                        <div class="proj-subtitle">Software Engineering Manager — Thomson Reuters</div>
+                        <div class="proj-summary">Blended technical and business leadership to scale the Thomson Reuters
+                            Case Tracking product. Led a team of 8+ developers and cross-functional partners to create
+                            OKRs, align product roadmap and pricing, and deliver a competitive offering in the
+                            fraud/waste/abuse market.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">Leadership</span>
+                            <span class="skill-chip">Strategic Planning</span>
+                            <span class="skill-chip">Product OKRs</span>
+                            <span class="skill-chip">Agile Evangelist</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">18 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/pondera_solutions_logo.jpeg" alt="Pondera"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Case Management Re-architecture</div>
+                        <div class="proj-subtitle">Software Engineer — Pondera Solutions (Thomson Reuters)</div>
+                        <div class="proj-summary">Architected a new approach to the case management system, mentoring
+                            developers and business leaders, streamlining UX and reducing technical maintenance.
+                            Resulted in a 10× increase in customer base with modest team expansion and recognition
+                            across the business unit.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">Nuxeo</span>
+                            <span class="skill-chip">ElasticSearch</span>
+                            <span class="skill-chip">CIAM SSO</span>
+                            <span class="skill-chip">Azure DevOps</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">18 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/intel_corporation_logo.jpeg" alt="Intel"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Windows Server Monitoring Dashboard + Scrum Onboarding</div>
+                        <div class="proj-subtitle">Software Engineer & Scrum Master — Intel Corporation</div>
+                        <div class="proj-summary">Built a datacenter Windows monitoring dashboard using .NET Core and
+                            Razor Pages, optimized LINQ queries, and onboarded a new Scrum team. Created Tableau reports
+                            to visualize velocity and burndown for senior management.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">.NET Core</span>
+                            <span class="skill-chip">Razor Pages</span>
+                            <span class="skill-chip">LINQ</span>
+                            <span class="skill-chip">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">10 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/intel_corporation_logo.jpeg" alt="Intel"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Network Redundancy for 10k+ Servers</div>
+                        <div class="proj-subtitle">IT Systems Programmer — Intel Corporation</div>
+                        <div class="proj-summary">Led NIC teaming rollout for over 10,000 Windows servers using
+                            PowerShell automation, integrating BIOS/iLO management and Azure, and creating a global
+                            automation tool for datacenter hardware landing.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">PowerShell</span>
+                            <span class="skill-chip">C#</span>
+                            <span class="skill-chip">Azure</span>
+                            <span class="skill-chip">NIC Teaming</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">12 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/intel_corporation_logo.jpeg" alt="Intel"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">CI/CD Pipeline Enhancements</div>
+                        <div class="proj-subtitle">Application Developer — Intel Corporation</div>
+                        <div class="proj-summary">Enhanced CI/CD by adding 10+ Bash deployment scripts, integrating
+                            Jenkins orchestration for Java enterprise applications, and addressing technical debt within
+                            a Spring Boot stack.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">Jenkins</span>
+                            <span class="skill-chip">Bash</span>
+                            <span class="skill-chip">Spring Boot</span>
+                            <span class="skill-chip">Linux</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">3 mos.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="proj-left">
+                    <span class="proj-icon" aria-hidden="true">
+                        <img src="company_icons/sacstate_logo.jpeg" alt="CSU Sacramento"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                    </span>
+                    <div>
+                        <div class="proj-role">Web Page Modernization Overhaul</div>
+                        <div class="proj-subtitle">Web Developer — California State University, Sacramento</div>
+                        <div class="proj-summary">Modernized 15 web pages with a mobile-first approach using Bootstrap,
+                            integrated social content via Juicer.io, and implemented password-protected pages and
+                            workflow automation on a LAMP stack based CMS.</div>
+                        <div style="margin-top:8px">
+                            <span class="skill-chip">HTML/CSS</span>
+                            <span class="skill-chip">Bootstrap</span>
+                            <span class="skill-chip">PHP</span>
+                            <span class="skill-chip">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-dates">6 mos.</div>
+            </div>
+
         </div>
     </section>
 
@@ -753,12 +1101,8 @@
         <div class="card">
             <div style="display:flex;gap:12px;align-items:center">
                 <span class="edu-logo" aria-hidden="true">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="white" opacity="0.95" />
-                        <path d="M4 9v6c0 2.761 4.03 5 8 5s8-2.239 8-5V9" stroke="rgba(255,255,255,0.8)"
-                            stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                    <img src="company_icons/sacstate_logo.jpeg" alt="CSU Sacramento"
+                        style="width:44px;height:44px;object-fit:cover;border-radius:8px;" />
                 </span>
                 <div>
                     <strong>BSc Computer Science</strong>, CSU Sacramento<br>
@@ -770,12 +1114,8 @@
         <div class="card">
             <div style="display:flex;gap:12px;align-items:center">
                 <span class="edu-logo" aria-hidden="true">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="white" opacity="0.95" />
-                        <path d="M4 9v6c0 2.761 4.03 5 8 5s8-2.239 8-5V9" stroke="rgba(255,255,255,0.8)"
-                            stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                    <img src="company_icons/sacstate_logo.jpeg" alt="CSU Sacramento"
+                        style="width:44px;height:44px;object-fit:cover;border-radius:8px;" />
                 </span>
                 <div>
                     <strong>Minor in Mathematics</strong>, CSU Sacramento
