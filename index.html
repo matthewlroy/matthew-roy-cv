@@ -9,27 +9,52 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --bg: #0f1724;
+            /* deep navy */
+            --card: #0b1220;
+            --muted: #9aa4b2;
+            --muted-2: #cfe8fb;
+            /* lighter muted for descriptions/contact */
+            --accent: #38bdf8;
+            /* cyan */
+            --accent-2: #60a5fa;
+            /* blue */
+            --glass: rgba(255, 255, 255, 0.04);
+            --radius: 12px;
+            --max-width: 980px;
+        }
+
         body {
             margin: 0;
-            font-family: "Segoe UI", Roboto, Arial, sans-serif;
-            background-color: #f7f9fc;
-            color: #333;
+            font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(180deg, #081229 0%, #071226 60%);
+            color: #e6eef6;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         header {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: #1e88e5;
-            color: white;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(calc(100% - 40px), var(--max-width));
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            color: var(--accent-2);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0.6rem 1rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 14px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
         }
 
         .header-left {
@@ -40,18 +65,21 @@
 
         header h1 {
             margin: 0;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #e6eef6;
+            letter-spacing: -0.2px;
         }
 
         #profile-photo {
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            background: white;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 8px 20px rgba(2, 6, 23, 0.7);
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            padding: 2px;
         }
 
         nav {
@@ -61,13 +89,18 @@
 
         nav a {
             margin: 0 0.7rem;
-            color: white;
+            color: var(--accent-2);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 8px;
+            border-radius: 8px;
         }
 
         nav a:hover {
-            border-bottom: 2px solid white;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--accent);
+            transform: translateY(-2px);
         }
 
         .hamburger {
@@ -94,9 +127,9 @@
         }
 
         section {
-            padding: 5.2rem 2rem 2rem;
-            max-width: 900px;
-            margin: auto;
+            padding: 6.6rem 2rem 2.5rem;
+            max-width: var(--max-width);
+            margin: 40px auto 0;
         }
 
         /* Docs */
@@ -108,19 +141,20 @@
         }
 
         .doc-card {
-            background: white;
-            padding: 0.8rem;
-            border-radius: 8px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            padding: 1rem;
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .doc-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(2, 6, 23, 0.7);
         }
 
         .doc-meta {
@@ -137,6 +171,24 @@
             gap: 0.45rem;
             font-size: 0.85rem;
             color: #666;
+        }
+
+        .pdf-badge {
+            color: var(--muted);
+        }
+
+        .card-link {
+            transition: transform 0.18s ease, box-shadow 0.18s ease
+        }
+
+        .skill-chip {
+            transition: transform 0.12s ease, background 0.15s ease
+        }
+
+        .skill-chip:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.035);
+            color: #fff
         }
 
         .pdf-icon {
@@ -161,9 +213,11 @@
 
         h2 {
             margin-top: 0;
-            color: #1e88e5;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 0.3rem;
+            color: var(--accent-2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding-bottom: 0.35rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
         }
 
         .skill-grid {
@@ -173,11 +227,130 @@
         }
 
         .card {
-            background: white;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
             padding: 1rem;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .skill-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            margin: 6px 6px 0 0;
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        /* Contact styling */
+        #contact p {
+            color: var(--muted-2);
+            margin: 0.35rem 0;
+        }
+
+        /* Experience section improvements */
+        .experience-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.5rem 1rem;
+            align-items: start;
+            padding: 14px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+        }
+
+        .exp-left {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .company-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            flex-shrink: 0;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .edu-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent-2), var(--accent));
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            color: #e6eef6;
+            margin-bottom: 0.25rem;
+            font-size: 1.02rem;
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-dates {
+            color: var(--muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Accessibility focus states */
+        a:focus,
+        button:focus {
+            outline: 3px solid rgba(56, 189, 248, 0.18);
+            outline-offset: 3px
+        }
+
+        .exp-summary {
+            color: var(--muted-2);
+            margin-top: 0.25rem;
+            font-size: 0.96rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .experience-item {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-dates {
+                text-align: left;
+            }
         }
 
         footer {
@@ -266,6 +439,16 @@
                 width: 44px;
                 height: 44px;
             }
+
+            /* Hide the entire aside (photo + subtitle) to remove its shadow on mobile */
+            .summary-aside {
+                display: none !important;
+            }
+
+            /* Make the summary grid a single column so the left content fills the width */
+            .summary-grid {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
@@ -292,20 +475,63 @@
     </header>
 
     <section id="summary" class="reveal">
-        <h2>Summary</h2>
-        <p><strong>Matthew Roy is</strong> a technology leader with 11+ years’ experience spanning startups and Fortune
-            500 companies. Proven ability to scale high-performing teams, modernize processes, and drive measurable
-            business outcomes with focus on cost optimization, Agile transformations, AI innovation, and executive
-            leadership.</p>
-        <div class="sub">Achievements include:</div>
-        <ul class="achievements-list">
-            <li>$1M+ annual cloud cost savings as Director of Technology at Thomson Reuters</li>
-            <li>Reduced OpEx spend by $2.5M+ year-over-year through operational efficiency</li>
-            <li>Improved release accuracy by 15% and throughput by 189% via Agile transformation</li>
-            <li>Launched GenAI-powered investigative applications and major product cloud migrations</li>
-            <li>Played pivotal role in driving a tenfold increase in deployed systems and expanding client base at
-                Pondera</li>
-        </ul>
+        <div class="summary-grid" style="display:grid;grid-template-columns:1fr 320px;gap:1.25rem;align-items:start;">
+            <div>
+                <h1 style="margin-top:0;color:var(--accent);font-size:1.6rem;">Matthew Roy</h1>
+                <p style="font-size:1.05rem;color:var(--muted);max-width:680px;">Technology leader with 11+ years'
+                    experience across startups and Fortune 500 organizations. Expert in building scalable engineering
+                    organizations, leading cloud migrations, driving cost optimization, and shipping AI-enabled products
+                    that deliver measurable business impact.</p>
+
+                <div style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap;">
+                    <a class="card-link" href="Matthew-Roy_Resume.pdf" target="_blank" rel="noopener"
+                        style="background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#071229;padding:10px 14px;border-radius:10px;font-weight:700;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(56,189,248,0.12);">Download
+                        Resume</a>
+                    <a class="card-link" href="#contact"
+                        style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent-2);padding:10px 14px;border-radius:10px;font-weight:600;display:inline-flex;align-items:center;">Contact
+                        Me</a>
+                </div>
+
+                <div class="sub" style="margin-top:1rem;color:var(--muted);font-weight:600;">Selected achievements</div>
+                <style>
+                    .achievements-list li {
+                        white-space: normal;
+                        overflow: visible;
+                        text-overflow: unset;
+                        margin-bottom: 6px;
+                    }
+
+                    .metric {
+                        color: var(--accent);
+                        font-weight: 700;
+                        margin-right: 0;
+                        display: inline;
+                    }
+                </style>
+                <ul class="achievements-list" style="color:var(--muted);">
+                    <li><span class="metric">$120M+</span> Acquisition impact: scaled the case management platform <div
+                            class="metric">10×</div>
+                        as a lead developer, helping enable the Thomson Reuters acquisition.</li>
+                    <li>Reduced operating expenses by <div class="metric">$2.5M+</div> YoY
+                        while improving delivery velocity by <div class="metric">189%</div> and release accuracy by <div
+                            class="metric">15%</div>.</li>
+                    <li>
+                        <div class="metric">AI Innovation</div> with the launching of the Investigative Assistant AI and
+                        GenAI
+                        applications, improving
+                        efficiency and competitive positioning.
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="summary-aside"
+                style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;backdrop-filter:blur(6px);">
+                <img src="profile_photo.jpeg" alt="Matthew Roy"
+                    style="width:100%;border-radius:10px;display:block;object-fit:cover;box-shadow:0 10px 30px rgba(2,6,23,0.6);">
+                <div style="margin-top:12px;color:var(--muted);font-size:0.95rem;">Director of Technology</div>
+            </div>
+        </div>
     </section>
 
     <section id="docs" class="reveal">
@@ -356,29 +582,44 @@
         <div class="skill-grid">
             <div class="card">
                 <div class="sub">Software</div>
-                <ul>
-                    <li>.NET Core, C#, C++, Java, Spring Boot, Python, PHP, Rust</li>
-                    <li>HTML, CSS, Bootstrap, JavaScript</li>
-                    <li>Entity Framework, Hibernate, MSSQL, MySQL</li>
-                </ul>
+                <div style="margin-top:8px">
+                    <span class="skill-chip">.NET Core</span>
+                    <span class="skill-chip">C#</span>
+                    <span class="skill-chip">C++</span>
+                    <span class="skill-chip">Java</span>
+                    <span class="skill-chip">Spring Boot</span>
+                    <span class="skill-chip">Python</span>
+                    <span class="skill-chip">PHP</span>
+                    <span class="skill-chip">Rust</span>
+                    <span class="skill-chip">HTML/CSS</span>
+                    <span class="skill-chip">JavaScript</span>
+                </div>
             </div>
             <div class="card">
                 <div class="sub">Infrastructure & DevOps</div>
-                <ul>
-                    <li>AWS, Azure, Docker, VMWare</li>
-                    <li>Linux, Windows Server, Jenkins</li>
-                    <li>Git, GitHub, Bitbucket</li>
-                    <li>JIRA, Rally, ServiceNow</li>
-                </ul>
+                <div style="margin-top:8px">
+                    <span class="skill-chip">AWS</span>
+                    <span class="skill-chip">Azure</span>
+                    <span class="skill-chip">Docker</span>
+                    <span class="skill-chip">VMWare</span>
+                    <span class="skill-chip">Linux</span>
+                    <span class="skill-chip">Windows Server</span>
+                    <span class="skill-chip">Jenkins</span>
+                    <span class="skill-chip">Git</span>
+                    <span class="skill-chip">GitHub</span>
+                </div>
             </div>
             <div class="card">
                 <div class="sub">Essential</div>
-                <ul>
-                    <li>Agile Evangelist, Scrum Master</li>
-                    <li>Leadership & Mentorship</li>
-                    <li>Process Improvement, Cost Optimization</li>
-                    <li>Cross-functional Collaboration, Strategic Planning</li>
-                </ul>
+                <div style="margin-top:8px">
+                    <span class="skill-chip">Agile Evangelist</span>
+                    <span class="skill-chip">Scrum Master</span>
+                    <span class="skill-chip">Leadership</span>
+                    <span class="skill-chip">Mentorship</span>
+                    <span class="skill-chip">Process Improvement</span>
+                    <span class="skill-chip">Cost Optimization</span>
+                    <span class="skill-chip">Strategic Planning</span>
+                </div>
             </div>
         </div>
     </section>
@@ -404,23 +645,142 @@
 
     <section id="experience" class="reveal">
         <h2>Experience</h2>
-        <div class="card"><strong>Director of Technology</strong>, Thomson Reuters | 2024–Present</div>
-        <div class="card"><strong>Software Engineer Manager</strong>, Thomson Reuters | 2021–2024</div>
-        <div class="card"><strong>Software Engineer</strong>, Pondera Solutions / Thomson Reuters | 2019–2021</div>
-        <div class="card"><strong>Software Engineer, Scrum Master</strong>, Intel | 2018–2019</div>
-        <div class="card"><strong>IT Systems Programmer</strong>, Intel | 2016–2018</div>
-        <div class="card"><strong>Application Developer</strong>, Intel | 2016</div>
-        <div class="card"><strong>Web Developer</strong>, CSU Sacramento | 2014–2016</div>
+        <div class="experience-list">
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="company-logo" aria-hidden="true"><img src="company_icons/thomson_reuters_logo.jpeg"
+                            alt="Thomson Reuters logo"></span>
+                    <div>
+                        <div class="exp-role">Director of Technology</div>
+                        <div class="exp-company">Thomson Reuters</div>
+                        <div class="exp-summary">Leading technology strategy and engineering teams to deliver scalable,
+                            cost-efficient cloud solutions and AI-enabled products. Responsible for cross-functional
+                            leadership, budgeting, and operational excellence.</div>
+                    </div>
+                </div>
+                <div class="exp-dates">2024 – Present</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="company-logo" aria-hidden="true"><img src="company_icons/thomson_reuters_logo.jpeg"
+                            alt="Thomson Reuters logo"></span>
+                    <div>
+                        <div class="exp-role">Software Engineering Manager</div>
+                        <div class="exp-company">Thomson Reuters</div>
+                        <div class="exp-summary">Managed multiple engineering squads, improved release accuracy and
+                            throughput through Agile practices, and mentored engineers to grow technical leadership.
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-dates">2021 – 2024</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="company-logo" aria-hidden="true"><img src="company_icons/pondera_solutions_logo.jpeg"
+                            alt="Pondera Solutions logo"></span>
+                    <div>
+                        <div class="exp-role">Software Engineer</div>
+                        <div class="exp-company">Pondera Solutions / Thomson Reuters</div>
+                        <div class="exp-summary">Worked on case management platform redesign to scale deployments and
+                            support client growth; contributed to backend and deployment automation.</div>
+                    </div>
+                </div>
+                <div class="exp-dates">2019 – 2021</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="company-logo" aria-hidden="true"><img src="company_icons/intel_corporation_logo.jpeg"
+                            alt="Intel logo"></span>
+                    <div>
+                        <div class="exp-role">Software Engineer & Scrum Master</div>
+                        <div class="exp-company">Intel</div>
+                        <div class="exp-summary">Delivered software projects while facilitating Agile teams and
+                            optimizing development workflows across multiple projects.</div>
+                    </div>
+                </div>
+                <div class="exp-dates">2018 – 2019</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="company-logo" aria-hidden="true"><img src="company_icons/intel_corporation_logo.jpeg"
+                            alt="Intel logo"></span>
+                    <div>
+                        <div class="exp-role">IT Systems Programmer</div>
+                        <div class="exp-company">Intel</div>
+                        <div class="exp-summary">Maintained and improved core systems and automation tooling to support
+                            internal infrastructure and operations.</div>
+                    </div>
+                </div>
+                <div class="exp-dates">2016 – 2018</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="company-logo" aria-hidden="true"><img src="company_icons/intel_corporation_logo.jpeg"
+                            alt="Intel logo"></span>
+                    <div>
+                        <div class="exp-role">Application Developer</div>
+                        <div class="exp-company">Intel</div>
+                        <div class="exp-summary">Built internal applications and supported early-stage projects across
+                            the organization.</div>
+                    </div>
+                </div>
+                <div class="exp-dates">2016</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-left">
+                    <span class="company-logo" aria-hidden="true"><img src="company_icons/sacstate_logo.jpeg"
+                            alt="CSU Sacramento logo"></span>
+                    <div>
+                        <div class="exp-role">Web Developer</div>
+                        <div class="exp-company">CSU Sacramento</div>
+                        <div class="exp-summary">Developed web applications and digital assets for university projects
+                            and departments.</div>
+                    </div>
+                </div>
+                <div class="exp-dates">2014 – 2016</div>
+            </div>
+        </div>
     </section>
 
     <section id="education" class="reveal">
         <h2>Education</h2>
         <div class="card">
-            <strong>BSc Computer Science</strong>, CSU Sacramento<br>
-            *Outstanding Scholastic Achievement Award – top of class*
+            <div style="display:flex;gap:12px;align-items:center">
+                <span class="edu-logo" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="white" opacity="0.95" />
+                        <path d="M4 9v6c0 2.761 4.03 5 8 5s8-2.239 8-5V9" stroke="rgba(255,255,255,0.8)"
+                            stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <div>
+                    <strong>BSc Computer Science</strong>, CSU Sacramento<br>
+                    <div style="color:var(--muted-2);margin-top:6px;font-style:italic;">Outstanding Scholastic
+                        Achievement Award – top of class</div>
+                </div>
+            </div>
         </div>
         <div class="card">
-            <strong>Minor in Mathematics</strong>, CSU Sacramento
+            <div style="display:flex;gap:12px;align-items:center">
+                <span class="edu-logo" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="white" opacity="0.95" />
+                        <path d="M4 9v6c0 2.761 4.03 5 8 5s8-2.239 8-5V9" stroke="rgba(255,255,255,0.8)"
+                            stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <div>
+                    <strong>Minor in Mathematics</strong>, CSU Sacramento
+                </div>
+            </div>
         </div>
     </section>
 
@@ -441,8 +801,16 @@
     <script>
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.getElementById("nav-links");
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("mobile-hidden");
+        hamburger.setAttribute('role', 'button');
+        hamburger.setAttribute('tabindex', '0');
+        const toggleNav = () => navLinks.classList.toggle("mobile-hidden");
+        hamburger.addEventListener("click", toggleNav);
+        hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleNav(); } });
+
+        // Add small hover highlight for nav items
+        document.querySelectorAll('nav a').forEach(a => {
+            a.addEventListener('focus', () => a.style.background = 'rgba(255,255,255,0.02)');
+            a.addEventListener('blur', () => a.style.background = 'transparent');
         });
 
         // Intersection Observer to reveal sections
