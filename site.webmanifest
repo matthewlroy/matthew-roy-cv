@@ -1,6 +1,8 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Matthew Roy — CV — Director of Technology",
+    "short_name": "Matthew Roy",
+    "description": "Director of Technology — Matthew Roy. Technology leader with 11+ years' experience in engineering leadership, cloud migrations, cost optimization, and AI-enabled products.",
+    "start_url": "./index.html",
     "icons": [
         {
             "src": "android-chrome-192x192.png",
@@ -13,7 +15,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#071226",
+    "background_color": "#071226",
     "display": "standalone"
 }
