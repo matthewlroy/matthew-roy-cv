@@ -112,10 +112,10 @@
         .hamburger span {
             height: 3px;
             width: 25px;
-            background: white;
+            background: var(--accent-2);
             margin: 4px 0;
             border-radius: 2px;
-            transition: 0.3s;
+            transition: 0.18s ease;
         }
 
         .nav-links {
@@ -127,9 +127,15 @@
         }
 
         section {
-            padding: 6.6rem 2rem 2.5rem;
+            padding: 4.2rem 2rem 1.5rem;
             max-width: var(--max-width);
-            margin: 40px auto 0;
+            margin: 28px auto 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        /* remove separator on last section to avoid double border with footer */
+        section:last-of-type {
+            border-bottom: none;
         }
 
         /* Docs */
@@ -477,16 +483,11 @@
             scroll-behavior: smooth;
         }
 
-        /* Fade/Slide animations */
+        /* Reveal disabled: show sections immediately */
         .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            transition: none !important;
         }
 
         /* Back to top button */
@@ -521,16 +522,44 @@
 
             .nav-links {
                 flex-direction: column;
-                background-color: #1e88e5;
                 position: absolute;
                 top: 60px;
-                right: 0;
-                width: 200px;
-                padding: 1rem;
+                right: 16px;
+                width: min(240px, 85%);
+                padding: 0.8rem;
+                border-radius: 12px;
+                /* slightly more opaque for readability */
+                background: linear-gradient(180deg, rgba(11, 18, 32, 0.88), rgba(11, 18, 32, 0.80));
+                border: 1px solid rgba(255, 255, 255, 0.06);
+                backdrop-filter: blur(8px);
+                box-shadow: 0 18px 40px rgba(2, 6, 23, 0.72);
+            }
+
+            /* make mobile nav links slightly brighter for readability */
+            .nav-links a {
+                color: #e6eef6;
+                padding: 8px 6px;
+                border-radius: 8px;
             }
 
             .hamburger {
                 display: flex;
+            }
+
+            /* hamburger -> X animation states */
+            .hamburger.open span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+                width: 22px;
+            }
+
+            .hamburger.open span:nth-child(2) {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            .hamburger.open span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+                width: 22px;
             }
 
             #profile-photo {
@@ -546,6 +575,18 @@
             /* Make the summary grid a single column so the left content fills the width */
             .summary-grid {
                 grid-template-columns: 1fr !important;
+            }
+
+            /* Faster reveal animation on small screens */
+            .reveal {
+                transition: opacity 0.45s ease, transform 0.45s ease;
+                transform: translateY(12px);
+            }
+
+            /* tighter vertical rhythm on mobile */
+            section {
+                padding: 3rem 1rem 1rem;
+                margin: 18px auto 0;
             }
         }
     </style>
@@ -1143,7 +1184,10 @@
         const navLinks = document.getElementById("nav-links");
         hamburger.setAttribute('role', 'button');
         hamburger.setAttribute('tabindex', '0');
-        const toggleNav = () => navLinks.classList.toggle("mobile-hidden");
+        const toggleNav = () => {
+            navLinks.classList.toggle("mobile-hidden");
+            hamburger.classList.toggle('open');
+        };
         hamburger.addEventListener("click", toggleNav);
         hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleNav(); } });
 
@@ -1153,19 +1197,7 @@
             a.addEventListener('blur', () => a.style.background = 'transparent');
         });
 
-        // Intersection Observer to reveal sections
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.reveal').forEach(section => {
-            observer.observe(section);
-        });
+        // Reveal mechanic removed: sections are visible by default
 
         // Back to Top logic
         const backToTop = document.getElementById("backToTop");
