@@ -459,6 +459,12 @@
             line-height: 1.45;
         }
 
+        /* Mobile date placement: hide mobile-specific elements by default */
+        .exp-dates-mobile,
+        .proj-dates-mobile {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .project-item {
                 grid-template-columns: 1fr;
@@ -466,6 +472,23 @@
 
             .proj-dates {
                 text-align: left;
+            }
+        }
+
+        /* On small screens, hide the top-right date elements and show the inline mobile dates */
+        @media (max-width: 768px) {
+            .exp-dates,
+            .proj-dates {
+                display: none;
+            }
+
+            .exp-dates-mobile,
+            .proj-dates-mobile {
+                display: block;
+                color: var(--muted);
+                font-size: 0.9rem;
+                margin-top: 0.25rem;
+                font-weight: 600;
             }
         }
 
@@ -799,6 +822,7 @@
                             alt="Thomson Reuters logo"></span>
                     <div>
                         <div class="exp-role">Director of Technology</div>
+                        <div class="exp-dates-mobile">2024 – Present</div>
                         <div class="exp-company">Thomson Reuters</div>
                         <div class="exp-summary">Leading technology strategy and engineering teams to deliver scalable,
                             cost-efficient cloud solutions and AI-enabled products. Responsible for cross-functional
@@ -814,6 +838,7 @@
                             alt="Thomson Reuters logo"></span>
                     <div>
                         <div class="exp-role">Software Engineering Manager</div>
+                        <div class="exp-dates-mobile">2021 – 2024</div>
                         <div class="exp-company">Thomson Reuters</div>
                         <div class="exp-summary">Managed multiple engineering squads, improved release accuracy and
                             throughput through Agile practices, and mentored engineers to grow technical leadership.
@@ -829,6 +854,7 @@
                             alt="Pondera Solutions logo"></span>
                     <div>
                         <div class="exp-role">Software Engineer</div>
+                        <div class="exp-dates-mobile">2019 – 2021</div>
                         <div class="exp-company">Pondera Solutions / Thomson Reuters</div>
                         <div class="exp-summary">Worked on case management platform redesign to scale deployments and
                             support client growth; contributed to backend and deployment automation.</div>
@@ -843,6 +869,7 @@
                             alt="Intel logo"></span>
                     <div>
                         <div class="exp-role">Software Engineer & Scrum Master</div>
+                        <div class="exp-dates-mobile">2018 – 2019</div>
                         <div class="exp-company">Intel</div>
                         <div class="exp-summary">Delivered software projects while facilitating Agile teams and
                             optimizing development workflows across multiple projects.</div>
@@ -857,6 +884,7 @@
                             alt="Intel logo"></span>
                     <div>
                         <div class="exp-role">IT Systems Programmer</div>
+                        <div class="exp-dates-mobile">2016 – 2018</div>
                         <div class="exp-company">Intel</div>
                         <div class="exp-summary">Maintained and improved core systems and automation tooling to support
                             internal infrastructure and operations.</div>
@@ -871,6 +899,7 @@
                             alt="Intel logo"></span>
                     <div>
                         <div class="exp-role">Application Developer</div>
+                        <div class="exp-dates-mobile">2016</div>
                         <div class="exp-company">Intel</div>
                         <div class="exp-summary">Built internal applications and supported early-stage projects across
                             the organization.</div>
@@ -885,6 +914,7 @@
                             alt="CSU Sacramento logo"></span>
                     <div>
                         <div class="exp-role">Web Developer</div>
+                        <div class="exp-dates-mobile">2014 – 2016</div>
                         <div class="exp-company">CSU Sacramento</div>
                         <div class="exp-summary">Developed web applications and digital assets for university projects
                             and departments.</div>
@@ -906,6 +936,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Leading Cost Optimization & Operational Efficiency</div>
+                        <div class="proj-dates-mobile">Ongoing</div>
                         <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
                         <div class="proj-summary">Directed strategic initiatives to optimize total technology group
                             expenses, achieving over $1M in annual cloud cost savings and reducing overall operational
@@ -935,6 +966,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Organizational Restructuring</div>
+                        <div class="proj-dates-mobile">3 mos.</div>
                         <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
                         <div class="proj-summary">Architected and executed a department-wide restructuring into four
                             pillars (Data Management, Release Management, New Product & Technologies, Application
@@ -959,6 +991,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Agile Transformation & Release Cadence</div>
+                        <div class="proj-dates-mobile">12 mos.</div>
                         <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
                         <div class="proj-summary">Rolled out consistent Agile ceremonies across pillars, unified sprint
                             planning, and shifted to a bi-weekly release cadence while automating weekly ETL
@@ -983,6 +1016,7 @@
                     </span>
                     <div>
                         <div class="proj-role">JIRA Transformation Committee</div>
+                        <div class="proj-dates-mobile">4 mos.</div>
                         <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
                         <div class="proj-summary">Led the overhaul of JIRA workflows with new issue statuses, gates, and
                             ceremonies, authored a user guide, and delivered training to accelerate adoption. Introduced
@@ -1006,6 +1040,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Group-wide Dashboard Design</div>
+                        <div class="proj-dates-mobile">6 mos.</div>
                         <div class="proj-subtitle">Director of Technology — Thomson Reuters</div>
                         <div class="proj-summary">Designed and built a centralized dashboard merging status, metrics,
                             and workflows across the four pillars to provide real-time visibility, align cross-team
@@ -1029,6 +1064,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Scale Case Management Product</div>
+                        <div class="proj-dates-mobile">18 mos.</div>
                         <div class="proj-subtitle">Software Engineering Manager — Thomson Reuters</div>
                         <div class="proj-summary">Blended technical and business leadership to scale the Thomson Reuters
                             Case Tracking product. Led a team of 8+ developers and cross-functional partners to create
@@ -1053,6 +1089,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Case Management Re-architecture</div>
+                        <div class="proj-dates-mobile">18 mos.</div>
                         <div class="proj-subtitle">Software Engineer — Pondera Solutions (Thomson Reuters)</div>
                         <div class="proj-summary">Architected a new approach to the case management system, mentoring
                             developers and business leaders, streamlining UX and reducing technical maintenance.
@@ -1077,6 +1114,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Windows Server Monitoring Dashboard + Scrum Onboarding</div>
+                        <div class="proj-dates-mobile">10 mos.</div>
                         <div class="proj-subtitle">Software Engineer & Scrum Master — Intel Corporation</div>
                         <div class="proj-summary">Built a datacenter Windows monitoring dashboard using .NET Core and
                             Razor Pages, optimized LINQ queries, and onboarded a new Scrum team. Created Tableau reports
@@ -1100,6 +1138,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Network Redundancy for 10k+ Servers</div>
+                        <div class="proj-dates-mobile">12 mos.</div>
                         <div class="proj-subtitle">IT Systems Programmer — Intel Corporation</div>
                         <div class="proj-summary">Led NIC teaming rollout for over 10,000 Windows servers using
                             PowerShell automation, integrating BIOS/iLO management and Azure, and creating a global
@@ -1123,6 +1162,7 @@
                     </span>
                     <div>
                         <div class="proj-role">CI/CD Pipeline Enhancements</div>
+                        <div class="proj-dates-mobile">3 mos.</div>
                         <div class="proj-subtitle">Application Developer — Intel Corporation</div>
                         <div class="proj-summary">Enhanced CI/CD by adding 10+ Bash deployment scripts, integrating
                             Jenkins orchestration for Java enterprise applications, and addressing technical debt within
@@ -1146,6 +1186,7 @@
                     </span>
                     <div>
                         <div class="proj-role">Web Page Modernization Overhaul</div>
+                        <div class="proj-dates-mobile">6 mos.</div>
                         <div class="proj-subtitle">Web Developer — California State University, Sacramento</div>
                         <div class="proj-summary">Modernized 15 web pages with a mobile-first approach using Bootstrap,
                             integrated social content via Juicer.io, and implemented password-protected pages and
